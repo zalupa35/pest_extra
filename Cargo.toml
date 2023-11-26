@@ -2,6 +2,10 @@
 name = "pest_extra"
 version = "0.1.0"
 edition = "2021"
+description = "Provides additional functionality for the Pest parser"
+homepage = "https://github.com/zalupa35/pest_extra"
+repository = "https://github.com/zalupa35/pest_extra"
+license = "MIT"
 
 [features]
 vm = ["dep:pest_vm"]
