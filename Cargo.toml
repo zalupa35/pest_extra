@@ -1,0 +1,15 @@
+[package]
+name = "pest_extra"
+version = "0.1.0"
+edition = "2021"
+
+[features]
+vm = ["dep:pest_vm"]
+formatter = ["dep:pest_fmt"]
+
+[dependencies]
+pest = "2.7.5"
+pest_derive = "2.7.5"
+pest_meta = "2.7.5"
+pest_vm = { version = "2.7.5", optional = true }
+pest_fmt = { version = "0.2.4", optional = true }
