@@ -15,7 +15,7 @@ See below to find how to compile this grammar into Pest grammar.
 
 A variable is a string that you can use in rules:
 
-```
+```rust
 variable = "value" // easier than variable = { "value" }
 ```
 
@@ -37,8 +37,9 @@ Includes all the rules from one grammar to another.
 
 <summary>calculator.pest</summary>
 
-```
+```rust
 include!("grammar2.pest")
+
 integer = @{ ASCII_DIGIT+ }
 primary = _{ integer | "(" ~ expr ~ ")" }
 atom = _{ unary_minus? ~ primary }
@@ -52,7 +53,7 @@ equation = _{ SOI ~ expr ~ EOI }
 
 <summary>grammar2.pest</summary>
 
-```
+```rust
 WHITESPACE = _{ " " }
 unary_minus = { "-" }
 bin_op = _{ add | subtract | multiply | divide | modulo }
@@ -69,7 +70,7 @@ bin_op = _{ add | subtract | multiply | divide | modulo }
 
 <summary>compiled.pest</summary>
 
-```
+```rust
 unary_minus =  { "-" }
 divide      =  { "/" }
 modulo      =  { "%" }
@@ -95,7 +96,7 @@ subtract    =  { "-" }
 
 #### Installation (for formatting and minifying):
 
-```
+```rust
 [dependencies]
 pest_extra = { version = "0.1.0", features = [ "formatter" ] }
 ```
@@ -142,7 +143,7 @@ Comparsion:
 
 Size: **556 bytes**
 
-```
+```rust
 // No whitespace allowed between digits
 integer = @{ ASCII_DIGIT+ }
 
@@ -173,7 +174,7 @@ Size: **272 bytes** (saved 48.92%)
 
 <summary>minified-calculator.pest</summary>
 
-```
+```rust
 integer=@{ASCII_DIGIT+}unary_minus={"-"}primary=_{integer|"("~expr~")"}atom=_{unary_minus?~primary}bin_op=_{add|subtract|multiply|divide|modulo}add={"+"}subtract={"-"}multiply={"*"}divide={"/"}modulo={"%"}expr={atom~(bin_op~atom)*}equation=_{SOI~expr~EOI}WHITESPACE=_{" "}
 ```
 
@@ -185,7 +186,7 @@ integer=@{ASCII_DIGIT+}unary_minus={"-"}primary=_{integer|"("~expr~")"}atom=_{un
 
 ### Installation
 
-```
+```rust
 [dependencies]
 pest_extra = "0.1.0"
 ```
@@ -214,7 +215,7 @@ create a parser from your grammar.
 
 ### Installation
 
-```
+```rust
 [dependencies]
 pest_extra = { version = "0.1.0", features = [ "vm" ] }
 ```
